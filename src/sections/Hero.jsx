@@ -25,9 +25,9 @@ const Hero = () => {
     <section className="min-h-screen w-full flex flex-col relative">
       <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3">
         <p className="sm:text-3xl text-2xl font-medium text-white text-center font-generalsans">
-          Hi, I am Germano <span className="waving-hand">👋</span>
+          Hi, I am Germano Kuerten <span className="waving-hand">👋</span>
         </p>
-        <p className="hero_tag text-gray_gradient">Frontend Developer</p>
+        <p className="hero_tag text-gray_gradient">Multimedia Artist & Frontend Developer</p>
       </div>
 
       {/* Three js starts here */}
