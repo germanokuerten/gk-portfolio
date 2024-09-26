@@ -13,6 +13,7 @@ import Cube from "../components/Cube";
 import Rings from "../components/Rings";
 import HeroCamera from "../components/HeroCamera";
 import Button from "../components/Button";
+import MacBookPro from "../components/MacBookPro";
 
 const Hero = () => {
   const isSmall = useMediaQuery({ maxWidth: 440 });
@@ -22,13 +23,15 @@ const Hero = () => {
   const sizes = calculateSizes(isSmall, isMobile, isTablet);
 
   return (
-    <section className="min-h-screen w-full flex flex-col relative">
-      <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3">
-        <p className="sm:text-3xl text-2xl font-medium text-white text-center font-generalsans">
-          Hi, I am Germano Kuerten <span className="waving-hand">👋</span>
-        </p>
-        <p className="hero_tag text-gray_gradient">Multimedia Artist & Frontend Developer</p>
-      </div>
+    <section className="min-h-screen w-full flex flex-col relative" id="home">
+      <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space  z-20">
+  <p className="sm:text-3xl text-2xl font-bold text-white text-center font-generalsans">
+    I am <span className="hero_tag_2">Germano Kuerten</span> 
+    {/* <span className="waving-hand">👋</span> */}
+  </p>
+  <p className="hero_tag text-gray_gradient">Multimedia <span className="hero_tag_2">Artist</span> & Frontend <span className="hero_tag_2">Developer</span></p>
+
+</div>
 
       {/* Three js starts here */}
       <div className="w-full h-full absolute inset-0">
@@ -37,11 +40,21 @@ const Hero = () => {
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 20]} />
             <HeroCamera isMobile={isMobile}>
-              <HackerRoom
+              {/* <HackerRoom
                 position={sizes.deskPosition}
                 scale={sizes.deskScale}
                 rotation={[0, -Math.PI, 0]}
-              />
+              /> */}
+              
+                <MacBookPro
+                  position={[0, -2, 2]}
+                  scale={17}
+                  rotation={[0, 1.6, 0.2]}
+                  brightness={1.7}
+                  onClick={() => window.open("https://github.com/germanokuerten", "_blank")}
+                />
+
+                
             </HeroCamera>
             <group>
               <Target position={sizes.targetPosition} />
@@ -49,8 +62,8 @@ const Hero = () => {
               {/* <Cube position={sizes.cubePosition}/> */}
               {/* <Rings position={sizes.ringPosition} /> */}
             </group>
-            <ambientLight intensity={1} />
-            <directionalLight position={[10, 10, 10]} intensity={0.5} />
+            <ambientLight intensity={2} />
+            <directionalLight position={[10, 10, 10]} intensity={2} />
           </Suspense>
         </Canvas>
       </div>

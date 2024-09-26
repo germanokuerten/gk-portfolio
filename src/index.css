@@ -31,7 +31,7 @@ body {
   }
 
   .nav-li_a {
-    @apply text-lg md:text-base hover:text-white transition-colors;
+    @apply text-base md:text-base hover:text-white transition-colors;
   }
 
   .nav-sidebar {
@@ -39,7 +39,7 @@ body {
   }
 
   .text-gray_gradient {
-    @apply bg-gradient-to-r from-[#BEC1CF] from-60% via-[#D5D8EA] via-60% to-[#D5D8EA] to-100% bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#d7d8ce] from-50% via-[#e2e5f4] via-60% to-[#eff0f4] to-100% bg-clip-text text-transparent;
   }
 
   /* button component */
@@ -58,6 +58,13 @@ body {
   /* hero section */
   .hero_tag {
     @apply text-center xl:text-4xl md:text-3xl sm:text-2xl text-2xl font-generalsans font-black !leading-normal;
+  }
+
+  @layer utilities {
+    .hero_tag_2 {
+      @apply text-transparent bg-clip-text;
+      background-image: linear-gradient(90deg, #00bfff, #0072FF);
+    }
   }
 
   /* about section */
@@ -195,3 +202,5 @@ body {
     transform: rotate(0deg);
   }
 }
+
+
