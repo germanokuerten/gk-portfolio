@@ -1,28 +1,30 @@
-import { useGLTF } from "@react-three/drei";
-import { useRef } from "react";
-import gsap from "gsap"
-import { useGSAP } from "@gsap/react";
+import React, { useRef } from "react";
+import { Float, useGLTF } from "@react-three/drei";
 
-const Target = (props) => {
-  const targetRef = useRef();
-  const { scene } = useGLTF(
-    "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/target-stand/model.gltf"
-  );
-
-  useGSAP( () => {
-    gsap.to(targetRef.current.position, {
-      y: targetRef.current.position.y + 0.5,
-      duration: 1.5,
-      repeat: -1,
-      yoyo: true
-    })
-  })
-
+const Camera = (props) => {
+  const { nodes, materials } = useGLTF("/models/camera.glb");
   return (
-    <mesh {...props} ref={targetRef} scale={1.5}>
-      <primitive object={scene} />
-    </mesh>
+    <group {...props} dispose={null}>
+      <Float floatIntensity={0.1}>
+        <group position={[-827.129, -50, -355]}>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Boole_2_Mat1_0.geometry}
+            material={materials["Mat.1"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Boole_2_Mat_0.geometry}
+            material={materials.material}
+          />
+        </group>
+      </Float>
+    </group>
   );
 };
 
-export default Target;
+useGLTF.preload("/models/camera.glb");
+
+export default Camera;
